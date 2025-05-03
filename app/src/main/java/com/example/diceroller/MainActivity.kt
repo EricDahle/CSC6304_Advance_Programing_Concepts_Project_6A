@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DiceRollerTheme {
-                DiceRollerApp()
+n                DiceRollerApp()
             }
         }
     }
@@ -33,7 +34,9 @@ fun DiceRollerApp() {
 
 
 @Composable
-fun DiceWithButtonAndImage(){
+fun DiceWithButtonAndImage(modifier = Modifier
+    .fillMaxSize()
+    .wrapContentSize()){
 
 }
 
