@@ -18,6 +18,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import com.example.diceroller.ui.theme.DiceRollerTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,8 +42,11 @@ fun DiceRollerApp() {
 }
 
 @Composable
-fun DiceWithButtonAndImage (modifier: Modifier = Modifier) {
-    Column (
+fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
+
+    val result = remember {mutableStateOf(1)}
+
+    Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -46,11 +54,11 @@ fun DiceWithButtonAndImage (modifier: Modifier = Modifier) {
             painter = painterResource(R.drawable.dice_1),
             contentDescription = "1"
         )
-        Button(onClick = {/*TODO*/}){
-            Text(
-                stringResource(R.string.roll)
-            )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = { result = (1..6).random() }) {
+            Text(stringResource(R.string.roll))
         }
     }
 }
+
 
